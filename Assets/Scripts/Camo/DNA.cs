@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,9 +21,16 @@ namespace ML.Scripts
         private float _b = 0;
 
         [SerializeField, Space]
-        public float _timeToDie = 0;
-        
+        private float _timeToDie = 0;
+
         private bool _isDead = false;
+
+        public float TimeToDie => _timeToDie;
+
+        public float R => _r;
+        public float G => _g;
+        public float B => _b;
+
         void OnMouseDown()
         {
             _isDead = true;
@@ -38,6 +44,21 @@ namespace ML.Scripts
             _b = Random.Range(0.0f, 1.0f);
 
             _spriteRenderer.color = new Color(_r, _g, _b);
+        }
+
+        public void SetR(float value)
+        {
+            _r = value;
+        }
+
+        public void SetG(float value)
+        {
+            _g = value;
+        }
+
+        public void SetB(float value)
+        {
+            _b = value;
         }
     }
 }
